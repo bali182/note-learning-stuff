@@ -11,3 +11,15 @@ export function getBarLength(bpm: number, beatsPerBar: number = 4): number {
 
   return millisecondsPerBar
 }
+
+export function isNil<T>(
+  input: T | null | undefined,
+): input is null | undefined {
+  return input === null || input === undefined
+}
+
+export function noop() {}
+
+export function isNotNil<T>(input: T | null | undefined): input is T {
+  return input !== null && input !== undefined
+}

@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid'
-import { PlayerNote } from './types'
+import { PlayerNote } from '../types'
 import { randomElement } from './utils'
 
 export const INDEX_TO_NOTE = new Map([
@@ -44,6 +44,7 @@ export function getRandomNotes(
     const note: PlayerNote = {
       type: 'note',
       id: nanoid(8),
+      time: `${i}:0:0`,
       index,
       note: withOctave,
       name: noteName,
