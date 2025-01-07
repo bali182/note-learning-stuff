@@ -6,6 +6,7 @@ export type ChartProps = {
   notes: PlayerNote[]
   active: PlayerNote
   isPlaying: boolean
+  onClick: (note: PlayerNote) => void
 }
 
 const chartStyle = css`
@@ -21,16 +22,25 @@ const itemStyle = css`
   padding: 10px;
   background-color: gray;
   border-radius: 6px;
+  cursor: pointer;
 `
 
-export const Chart: FC<ChartProps> = ({ notes }) => {
+export const Chart: FC<ChartProps> = ({ notes, onClick, active }) => {
   return (
     <div className={chartStyle}>
-      {notes.map((item) => (
-        <div key={item.id} className={itemStyle}>
-          {item.name}
-        </div>
-      ))}
+      {notes.map((item) => {
+        const onNoteClick = () => onClick(item)
+        return (
+          <div
+            key={item.id}
+            className={itemStyle}
+            style={{ backgroundColor: active === item ? 'red' : undefined }}
+            onClick={onNoteClick}
+          >
+            {item.name}
+          </div>
+        )
+      })}
     </div>
   )
 }

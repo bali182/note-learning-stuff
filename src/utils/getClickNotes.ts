@@ -14,7 +14,7 @@ export function getClickNotes(notes: PlayerNote[]): ClickPlayerNote[] {
         barId: pianoNote.id,
         note: CLICK_NOTE,
         time: `${i}:${beat}:0`,
-        volume: beat === 0 ? 0.55 : 0.3,
+        volume: beat === 0 ? 0.6 : 0.3,
       })
     }
   }
